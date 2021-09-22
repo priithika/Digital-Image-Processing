@@ -1,0 +1,12 @@
+img=imread('lena.png'); 
+x = 20;
+y = 20; 
+q = [size(I,1); size(I,2); 1];
+dia = [0 1 x; 1 1 y; 1 0 1];
+q2 = mtimes(dia,q);
+imgnew = uint8( zeros(q2(1)-1, q2(1)-1, size(I,3)));
+imgnew(y:end, x:end, :)  = I;
+subplot(1,2,1);
+imshow(I);
+subplot(1,2,2);
+imshow(imgnew);
